@@ -47,6 +47,10 @@ class ComplaintForm(forms.Form):
         max_length=255,
         widget=forms.Textarea(attrs=attrs_template)
     )
+    license_plate = forms.CharField(
+        max_length=8,
+        widget=forms.TextInput(attrs=attrs_template)
+    )
     evidence = forms.FileField(
         required=False
     )
@@ -56,6 +60,7 @@ class ComplaintForm(forms.Form):
         place_event = self.cleaned_data['place_event']
         event_date = self.cleaned_data['event_date']
         event_time = self.cleaned_data['event_time']
+        license_plate = self.cleaned_data['license_plate']
         description = self.cleaned_data['description']
 
         new_complaint = Complaint.objects.create(
@@ -64,6 +69,7 @@ class ComplaintForm(forms.Form):
             event_date=event_date,
             event_time=event_time,
             description=description,
+            license_plate=license_plate
             # evidence=evidence
         )
 

@@ -19,9 +19,7 @@
     <!-- Pluggins Js -->
     <script src="{% static 'plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
     <script src="{% static 'plugins/timepicker/bootstrap-timepicker.min.js' %}"></script>
-    <!-- My Own Js file -->
-    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.maskedinput.min.js' %}"></script>    
+
 
   </head>
   <!-- End Head -->
@@ -33,6 +31,9 @@
       {% block content%} {% endblock %}
     </div>
     {% block own_js%} {% endblock %}
+    <!-- My Own Js file -->
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.maskedinput.min.js' %}"></script>    
   </body>
 </html>
 

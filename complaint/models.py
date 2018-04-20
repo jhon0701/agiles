@@ -8,7 +8,8 @@ class Complaint(models.Model):
     complaint_date = models.DateField(auto_now_add=True)
     event_date = models.DateField()
     event_time = models.TimeField()
-    description = models.TextField(blank=True, null=True)
+    description = models.TextField()
+    license_plate = models.CharField(max_length=8, blank=True, null=True)
     evidence = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
