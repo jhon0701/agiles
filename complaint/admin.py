@@ -8,7 +8,7 @@ class ComplaintAdmin(admin.ModelAdmin):
 
     list_display = [
         "id", "complainant_name", "place_event", "complaint_date",
-        "event_date_time", "description", "evidence"
+        "event_date", "event_time", "description", "evidence"
     ]
 
     class Meta:

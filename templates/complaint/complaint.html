@@ -1,0 +1,111 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <!-- Card -->
+    <div class="card">
+      <!-- Chard Header -->
+      <div class="card-header bg-primary text-white">
+	{{form.FORM_TITLE}}
+      </div>
+      <!-- End Card Header -->
+
+      <!-- Card Body -->
+      <div class="card-body">
+	<form action="{{url}}" method="POST">
+	  
+	  {% csrf_token %}
+	  
+	  <div class="row">
+	    <div class="col-lg-12">
+	      <div class="form-group">
+		<label for="id_complainant_name">Denunciante</label>
+		{{form.complainant_name}}
+	      </div>
+	    </div>
+	  </div>
+	
+	  <div class="row">
+	    <div class="col-lg-12">
+	      <div class="form-group">
+		<label for="id_place_event">Lugar del acontecimiento</label>
+		{{form.place_event}}
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <div class="row">
+	    <div class="col-lg-6">
+	      <div class="form-group">
+		<label for="id_event_date">Fecha</label>
+		{{form.event_date}}
+	      </div>
+	    </div>
+	    <div class="col-lg-6">
+	      <div class="form-group">
+		<label for="id_event_time">Hora</label>
+		{{form.event_time}}
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <div class="row">
+	    <div class="col-lg-12">
+	      <div class="form-group">
+		<label for="id_description">Descripcion</label>
+		{{form.description}}
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <div class="row">
+	    <div class ="col-md-3">	      
+	      <button class="btn btn-primary" type="submit">Realizar denuncia</button>
+	    </div>
+	  </div>
+
+	</form>
+      </div>
+      <!-- End Card-Body -->
+    </div>
+    <!-- End Card -->
+  </div>
+</div>
+
+{% endblock %}
+{% block own_js%}
+<script type="text/javascript">
+ // Time Picker
+ jQuery('#timepicker').timepicker({
+     defaultTIme : false
+ });
+ jQuery('#timepicker2').timepicker({
+     showMeridian : false
+ });
+ jQuery('#timepicker3').timepicker({
+     minuteStep : 15
+ });
+ 
+ // Date Picker
+ jQuery('#datepicker').datepicker();
+ jQuery('#datepicker-autoclose').datepicker({
+     autoclose: true,
+     todayHighlight: true
+ });
+ jQuery('#datepicker-inline').datepicker();
+ jQuery('#datepicker-multiple-date').datepicker({
+     format: "dd/mm/yyyy",
+     clearBtn: true,
+     multidate: true,
+     multidateSeparator: ","
+ });
+ jQuery('#date-range').datepicker({
+     toggleActive: true
+ });
+
+
+</script>
+<script type="text/javascript" src="{% static 'complaint/complaint.js' %}"></script>
+{% endblock %}
