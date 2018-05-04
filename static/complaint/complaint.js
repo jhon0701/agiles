@@ -30,6 +30,6 @@ $(document).ready(function(){
   // Validations
   $('input#datepicker').mask("99/99/9999");
   $('input#timepicker2').mask("99:99");
-  $('input#id_license_plate').addClass("input-number");
+  $('input#id_license_plate').addClass("input-number-text");
 
 });

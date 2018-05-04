@@ -28,3 +28,20 @@ class ComplaintView(View):
 
 
 complaint_view = ComplaintView.as_view()
+
+
+class ComplaintPublicationView(View):
+
+    template_name = "complaint/complaint_publication.html"
+    TITLE = "Denuncias"
+
+    def get(self, request):
+        url = reverse("complaint_publication")
+        context = {
+            'url': url,
+            'title': self.TITLE
+        }
+        return render(request, self.template_name, context)
+
+
+complaint_publication_view = ComplaintPublicationView.as_view()
